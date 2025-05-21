@@ -123,7 +123,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CitySimulator.cpp" />
+    <ClCompile Include="ApartmentBuilding.cpp" />
+    <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Citizen.cpp" />
+    <ClCompile Include="City.cpp" />
+    <ClCompile Include="CommandProcessor.cpp" />
+    <ClCompile Include="DormBuilding.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ModernBuilding.cpp" />
+    <ClCompile Include="Profession.cpp" />
+    <ClCompile Include="Simulation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApartmentBuilding.h" />
+    <ClInclude Include="Building.h" />
+    <ClInclude Include="Citizen.h" />
+    <ClInclude Include="City.h" />
+    <ClInclude Include="CommandProcessor.h" />
+    <ClInclude Include="DormBuilding.h" />
+    <ClInclude Include="ModernBuilding.h" />
+    <ClInclude Include="Profession.h" />
+    <ClInclude Include="Simulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
