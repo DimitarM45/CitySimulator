@@ -123,27 +123,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ApartmentBuilding.cpp" />
-    <ClCompile Include="Building.cpp" />
-    <ClCompile Include="Citizen.cpp" />
-    <ClCompile Include="City.cpp" />
-    <ClCompile Include="CommandProcessor.cpp" />
-    <ClCompile Include="DormBuilding.cpp" />
+    <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp" />
+    <ClCompile Include="Classes\Models\Source files\Building.cpp" />
+    <ClCompile Include="Classes\Models\Source files\Citizen.cpp" />
+    <ClCompile Include="Classes\Models\Source files\City.cpp" />
+    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp" />
+    <ClCompile Include="Classes\Models\Source files\DormBuilding.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ModernBuilding.cpp" />
-    <ClCompile Include="Profession.cpp" />
-    <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="Classes\Models\Source files\ModernBuilding.cpp" />
+    <ClCompile Include="Classes\Models\Source files\Profession.cpp" />
+    <ClCompile Include="Classes\Services\Source files\Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApartmentBuilding.h" />
-    <ClInclude Include="Building.h" />
-    <ClInclude Include="Citizen.h" />
-    <ClInclude Include="City.h" />
-    <ClInclude Include="CommandProcessor.h" />
-    <ClInclude Include="DormBuilding.h" />
-    <ClInclude Include="ModernBuilding.h" />
-    <ClInclude Include="Profession.h" />
-    <ClInclude Include="Simulation.h" />
+    <ClInclude Include="Classes\Models\Header files\ApartmentBuilding.h" />
+    <ClInclude Include="Classes\Models\Header files\Building.h" />
+    <ClInclude Include="Classes\Models\Header files\Citizen.h" />
+    <ClInclude Include="Classes\Models\Header files\City.h" />
+    <ClInclude Include="Classes\Services\Header files\CommandProcessor.h" />
+    <ClInclude Include="Classes\Models\Header files\DormBuilding.h" />
+    <ClInclude Include="Classes\Models\Header files\ModernBuilding.h" />
+    <ClInclude Include="Classes\Models\Source files\Profession.h" />
+    <ClInclude Include="Classes\Services\Header files\Simulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

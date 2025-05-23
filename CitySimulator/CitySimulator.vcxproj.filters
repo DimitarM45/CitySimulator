@@ -18,60 +18,60 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Citizen.cpp">
+    <ClCompile Include="Classes\Models\Source files\Citizen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Profession.cpp">
+    <ClCompile Include="Classes\Models\Source files\Profession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Building.cpp">
+    <ClCompile Include="Classes\Models\Source files\Building.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ModernBuilding.cpp">
+    <ClCompile Include="Classes\Models\Source files\ModernBuilding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="City.cpp">
+    <ClCompile Include="Classes\Models\Source files\City.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DormBuilding.cpp">
+    <ClCompile Include="Classes\Models\Source files\DormBuilding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ApartmentBuilding.cpp">
+    <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Simulation.cpp">
+    <ClCompile Include="Classes\Services\Source files\Simulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CommandProcessor.cpp">
+    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Citizen.h">
+    <ClInclude Include="Classes\Models\Header files\Citizen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Profession.h">
+    <ClInclude Include="Classes\Models\Source files\Profession.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Building.h">
+    <ClInclude Include="Classes\Models\Header files\Building.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ModernBuilding.h">
+    <ClInclude Include="Classes\Models\Header files\ModernBuilding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="City.h">
+    <ClInclude Include="Classes\Models\Header files\City.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DormBuilding.h">
+    <ClInclude Include="Classes\Models\Header files\DormBuilding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ApartmentBuilding.h">
+    <ClInclude Include="Classes\Models\Header files\ApartmentBuilding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Simulation.h">
+    <ClInclude Include="Classes\Services\Header files\Simulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CommandProcessor.h">
+    <ClInclude Include="Classes\Services\Header files\CommandProcessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
