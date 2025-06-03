@@ -7,23 +7,26 @@
 // The citizen class represents the actual citizens in the simulation. Their functions are handled by the abstract method live(). 
 class Citizen
 {
-	using string = std::string;
-
 public:
-	Citizen(const string& name, Building& building, unsigned happiness, unsigned money, int lifePoints);
+	Citizen(const std::string& name, Building& building, unsigned happiness, double money, unsigned lifePoints);
 
-	virtual void live() = 0;
+	virtual void live(unsigned day) = 0;
 
+	const std::string& getName() const;
+	unsigned getHappiness() const;
+	double getMoney() const;
+	unsigned getLifePoints() const;	
+
+	virtual std::ostream& operator<<(std::ostream& out);
 private:
-	string name;
+	std::string name;
 	Building& building;
 	unsigned happiness;
-	unsigned money;
-	int lifePoints;
+	double money;
+	unsigned lifePoints;
 
+	void setName(const std::string& name);
 	void setHappiness(unsigned happiness);
-	void setMoney(unsigned money);
+	void setMoney(double money);
 	void setLifePoints(int lifePoints);
 };
-
-int getRandomInRange(int min, int max);

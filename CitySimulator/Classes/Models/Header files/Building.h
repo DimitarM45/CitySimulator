@@ -7,27 +7,24 @@
 
 class Building
 {
-	using vector = std::vector<Citizen>;
-
 public:
-	Building(unsigned denizenCount, unsigned xIndex, unsigned yIndex, unsigned rent);
+	Building(unsigned denizenCount, unsigned yIndex, unsigned xIndex, unsigned rent);
 	
-	void passDay();
+	virtual void passDay(unsigned day) = 0;
 
 	unsigned getRent() const;
 	bool getIsCentral() const;
 
 private:
-	vector denizens;
+	std::vector<Citizen> denizens;
 	unsigned rent;
-	unsigned denizenCount;
-	unsigned xIndex;
 	unsigned yIndex;
+	unsigned xIndex;
 	bool isCentral;
 
 	void setRent(unsigned rent);
-	bool isCentralBuilding(unsigned xIndex, unsigned yIndex);
+	bool isCentralBuilding(unsigned yIndex, unsigned xIndex);
 };
 
-short min(unsigned xIndex, unsigned yIndex);
+short min(unsigned yIndex, unsigned xIndex);
 

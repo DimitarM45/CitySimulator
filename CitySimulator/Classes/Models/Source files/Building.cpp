@@ -10,18 +10,20 @@ namespace BuildingConstants
 
 using namespace BuildingConstants;
 
-Building::Building(unsigned denizenCount, unsigned xIndex, unsigned yIndex, unsigned rent)
-	: denizenCount(denizenCount), xIndex(xIndex), yIndex(yIndex)
+Building::Building(unsigned denizenCount, unsigned yIndex, unsigned xIndex, unsigned rent)
+	: yIndex(yIndex), xIndex(xIndex)
 {
-	this->isCentral = isCentralBuilding(xIndex, yIndex);
+	this->isCentral = isCentralBuilding(yIndex, xIndex);
 	setRent(rent);
 }
 
-void Building::simulateDay()
+void Building::passDay(unsigned day)
 {
+	unsigned denizenCount = denizens.size();
+
 	for (size_t i = 0; i < denizenCount; i++)
 	{
-		denizens[i].live();
+		denizens[i].live(day);
 	}
 }
 
@@ -50,7 +52,6 @@ bool Building::isCentralBuilding(unsigned xIndex, unsigned yIndex)
 	{
 
 	}
-
 }
 
 short min(unsigned xIndex, unsigned yIndex)
