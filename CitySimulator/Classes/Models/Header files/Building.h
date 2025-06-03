@@ -1,24 +1,33 @@
 #pragma once
 
 #include "Citizen.h"
+#include "../../Utilities/Header files/Matrix.h"
 
 #include <vector>
 
-using std::vector;
-
 class Building
 {
-public:
-	Building(bool isCentral, unsigned denizenCapacity);
+	using vector = std::vector<Citizen>;
 
-	bool getIsCentral() const;
+public:
+	Building(unsigned denizenCount, unsigned xIndex, unsigned yIndex, unsigned rent);
 	
-	void simulateDay();
+	void passDay();
+
+	unsigned getRent() const;
+	bool getIsCentral() const;
 
 private:
-	vector<Citizen> denizens;
-	bool isCentral;
-	unsigned denizenCapacity;
+	vector denizens;
+	unsigned rent;
 	unsigned denizenCount;
+	unsigned xIndex;
+	unsigned yIndex;
+	bool isCentral;
+
+	void setRent(unsigned rent);
+	bool isCentralBuilding(unsigned xIndex, unsigned yIndex);
 };
+
+short min(unsigned xIndex, unsigned yIndex);
 

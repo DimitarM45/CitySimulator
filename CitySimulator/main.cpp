@@ -1,11 +1,8 @@
-#include <string>
-#include <iostream>
+#include "Classes/Models/Header files/Building.h"
 
-using std::string;
+#include <iostream>
 
 int main()
 {
-	string test;
 
-	std::cout << test;
 }

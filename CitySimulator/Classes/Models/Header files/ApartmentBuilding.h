@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Building.h"
+#include ""
 
-class ApartmentBuilding : Building
+class ApartmentBuilding
 {
-
 };
 

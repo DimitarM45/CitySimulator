@@ -1,30 +1,21 @@
-#include "Citizen.h"
+#include "../Header files/Citizen.h"
 
-Citizen::Citizen(const string name, const Profession& profession, const Building& building, unsigned happiness, unsigned money, int lifePoints)
+#include <stdexcept>
+
+namespace CitizenErrorMessages
 {
-
+	const char* INVALID_PROFESSION = "Invalid profession!";
 }
 
-Citizen::Citizen(const Citizen& other)
+Citizen::Citizen(const string& name, Building& building, unsigned happiness, unsigned money, int lifePoints)
+	: happiness(happiness), money(money), lifePoints(lifePoints), building(building)
 {
-}
-
-Citizen& Citizen::operator=(const Citizen& other)
-{
-	// TODO: insert return statement here
-}
-
-Citizen::~Citizen()
-{
+	this->name = name;
 }
 
 void Citizen::live()
 {
-}
 
-void Citizen::setName(string name)
-{
-	name = string(name);
 }
 
 void Citizen::setHappiness(unsigned happiness)
@@ -42,11 +33,9 @@ void Citizen::setLifePoints(int lifePoints)
 	this->lifePoints = lifePoints;
 }
 
-void Citizen::free()
+int getRandomInRange(int min, int max)
 {
+	int range = max - min + 1;
 
-}
-
-void Citizen::copyFrom(const Citizen& other)
-{
+	return min + (std::rand() % range);	
 }

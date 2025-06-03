@@ -1,36 +1,29 @@
 #pragma once
 
+#include "Building.h"
+
 #include <string>
 
-#include "Building.h"
-#include "Profession.h"
-
-using std::string;
-
+// The citizen class represents the actual citizens in the simulation. Their functions are handled by the abstract method live(). 
 class Citizen
 {
-public:
-	Citizen(const string name, const Profession& profession, const Building& building, unsigned happiness, unsigned money, int lifePoints);
-	Citizen(const Citizen& other);
-	Citizen& operator=(const Citizen& other);
-	~Citizen();
+	using string = std::string;
 
-	void live();
+public:
+	Citizen(const string& name, Building& building, unsigned happiness, unsigned money, int lifePoints);
+
+	virtual void live() = 0;
 
 private:
 	string name;
-	Profession* profession;
-	Building* building;
+	Building& building;
 	unsigned happiness;
 	unsigned money;
 	int lifePoints;
 
-	void setName(string name);
 	void setHappiness(unsigned happiness);
 	void setMoney(unsigned money);
 	void setLifePoints(int lifePoints);
-
-	void free();
-	void copyFrom(const Citizen& other);
 };
 
+int getRandomInRange(int min, int max);

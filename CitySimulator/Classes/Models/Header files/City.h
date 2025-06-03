@@ -1,11 +1,10 @@
 #pragma once
 
 #include "Building.h"
+#include "../../Utilities/Header files/Matrix.h"
 
 #include <ctime>
 #include <vector>
-
-using std::vector;
 
 class City
 {
@@ -16,6 +15,6 @@ public:
 	~City();
 
 private:
-	vector<vector<Building*>> grid;
+	Matrix<Building> buildings;
 };
 
