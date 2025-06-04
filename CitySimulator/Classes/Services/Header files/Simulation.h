@@ -1,5 +1,7 @@
 #pragma once
 
+#include "HistoryManager.h"
+#include "CommandProcessor.h"
 #include "../../Models/Header files/City.h"
 #include "../../Utilities/Header files/Date.h"
 
@@ -14,21 +16,21 @@ enum class SeedOption
 class Simulation
 {
 public:
+	Simulation(HistoryManager& historyManager);
+
 	void executeSteps(int steps = 1);
-	void pause();
 	void stop();
 	void reset();
 
 	void saveState(std::ostream& outStream);
-	void load(SeedOption option);
 
 private:
-	City* city;
-	unsigned speed;
+	City city;
+	HistoryManager& historyManager;
 	Date date;
 	bool isReset;
 
+	void load(SeedOption option);
 	void loadState(std::istream& inStream);
 	void seed();
 };
-

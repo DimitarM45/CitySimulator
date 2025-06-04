@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Services\Source files\HistoryManager.cpp" />
     <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp" />
     <ClCompile Include="Classes\Models\Source files\Building.cpp" />
     <ClCompile Include="Classes\Models\Source files\Citizen.cpp" />
@@ -137,8 +138,11 @@
     <ClCompile Include="Classes\Models\Source files\Teacher.cpp" />
     <ClCompile Include="Classes\Models\Source files\Unemployed.cpp" />
     <ClCompile Include="Classes\Models\Source files\ModernBuilding.cpp" />
+    <ClCompile Include="Classes\Services\Source files\SimulationCommandProcessor.cpp" />
+    <ClCompile Include="Classes\Services\Source files\SimulationManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Services\Header files\HistoryManager.h" />
     <ClInclude Include="Classes\Models\Header files\ApartmentBuilding.h" />
     <ClInclude Include="Classes\Models\Header files\Building.h" />
     <ClInclude Include="Classes\Models\Header files\Citizen.h" />
@@ -154,6 +158,8 @@
     <ClInclude Include="Classes\Utilities\Header files\Date.h" />
     <ClInclude Include="Classes\Models\Header files\DormBuilding.h" />
     <ClInclude Include="Classes\Models\Header files\ModernBuilding.h" />
+    <ClInclude Include="Classes\Services\Header files\SimulationCommandProcessor.h" />
+    <ClInclude Include="Classes\Services\Header files\SimulationManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
