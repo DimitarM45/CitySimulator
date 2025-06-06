@@ -16,19 +16,22 @@ enum class SeedOption
 class Simulation
 {
 public:
-	Simulation(HistoryManager& historyManager);
+	Simulation();
 
 	void executeSteps(int steps = 1);
-	void stop();
 	void reset();
+	void addDenizen(const Citizen& denizen);
 
 	void saveState(std::ostream& outStream);
+	void configure(SeedOption seedOption);
 
+	unsigned getDeadPeopleCount() const;
 private:
 	City city;
-	HistoryManager& historyManager;
 	Date date;
 	bool isReset;
+	bool isCreatedSuccessfully;
+	unsigned currentDeadPeople;
 
 	void load(SeedOption option);
 	void loadState(std::istream& inStream);

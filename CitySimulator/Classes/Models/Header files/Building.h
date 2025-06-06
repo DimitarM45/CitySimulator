@@ -10,13 +10,13 @@ class Building
 public:
 	Building(unsigned denizenCount, unsigned yIndex, unsigned xIndex, unsigned rent);
 	
-	virtual void passDay(unsigned day) = 0;
+	virtual void passDay(unsigned dateDay) = 0;
 
 	unsigned getRent() const;
 	bool getIsCentral() const;
 
 private:
-	std::vector<Citizen> denizens;
+	std::vector<Citizen*> denizens;
 	unsigned rent;
 	unsigned yIndex;
 	unsigned xIndex;

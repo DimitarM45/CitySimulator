@@ -6,6 +6,7 @@
 int main()
 {
 	CommandProcessor commandProcessor = new SimulationCommandProcessor();
+	HistoryManager historyManager = HistoryManager();
 	SimulationManager simManager(commandProcessor);
 
 	simManager.run();

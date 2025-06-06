@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Models\Commands\Source files\Command.cpp" />
     <ClCompile Include="Classes\Services\Source files\HistoryManager.cpp" />
     <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp" />
     <ClCompile Include="Classes\Models\Source files\Building.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Classes\Models\Source files\ModernBuilding.cpp" />
     <ClCompile Include="Classes\Services\Source files\SimulationCommandProcessor.cpp" />
     <ClCompile Include="Classes\Services\Source files\SimulationManager.cpp" />
+    <ClCompile Include="Classes\Models\Commands\Source files\StepCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Services\Header files\HistoryManager.h" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Classes\Models\Header files\ModernBuilding.h" />
     <ClInclude Include="Classes\Services\Header files\SimulationCommandProcessor.h" />
     <ClInclude Include="Classes\Services\Header files\SimulationManager.h" />
+    <ClInclude Include="Classes\Models\Commands\Header files\Command.h" />
+    <ClInclude Include="Classes\Models\Commands\Header files\StepCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

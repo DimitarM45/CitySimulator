@@ -5,12 +5,13 @@
 class SimulationCommandProcessor : public CommandProcessor
 {
 public:
-	SimulationCommandProcessor(std::istream& inStream, std::ostream& outStream);
-
+	SimulationCommandProcessor(std::istream& inStream, std::ostream& outStream, Simulation& simulation);
 	virtual ~SimulationCommandProcessor() = default;
 
-	virtual bool execute(std::vector<const std::string&> commandTokens) override;
+	void run();
 
-private:
+protected:
+	Simulation& simulation;
+	bool execute(std::vector<const std::string&> commandTokens);
 };
 

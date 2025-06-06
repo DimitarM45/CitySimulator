@@ -12,12 +12,12 @@ public:
 
 	virtual ~CommandProcessor() = default;
 
-private:
-	std::istream& inStream;
-	std::ostream& outStream;
-
+protected:
 	virtual bool execute(std::vector<std::string> commandTokens) = 0;
 	std::vector<std::string> parseCommand(std::string command);
+
+	std::istream& inStream;
+	std::ostream& outStream;
 };
 
 void trimString(std::string& string);

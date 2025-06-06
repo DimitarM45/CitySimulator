@@ -10,7 +10,7 @@ class Citizen
 public:
 	Citizen(const std::string& name, Building& building, unsigned happiness, double money, unsigned lifePoints);
 
-	virtual void live(unsigned day) = 0;
+	virtual void live(unsigned dateDay) = 0;
 
 	const std::string& getName() const;
 	unsigned getHappiness() const;
@@ -18,7 +18,8 @@ public:
 	unsigned getLifePoints() const;	
 
 	virtual std::ostream& operator<<(std::ostream& out);
-private:
+
+protected:
 	std::string name;
 	Building& building;
 	unsigned happiness;
