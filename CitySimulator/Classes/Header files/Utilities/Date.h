@@ -59,4 +59,4 @@ private:
 	unsigned int getDaysInMonth(unsigned short month);
 };
 
-std::ostream& operator<<(std::ostream& outFile, const Date& date);
+std::ostream& operator<<(std::ostream& outStream, const Date& date);

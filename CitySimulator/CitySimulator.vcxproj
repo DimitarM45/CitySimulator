@@ -102,10 +102,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Classes\Header files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -123,15 +125,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Classes\Models\Commands\Source files\Command.cpp" />
     <ClCompile Include="Classes\Services\Source files\HistoryManager.cpp" />
     <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp" />
     <ClCompile Include="Classes\Models\Source files\Building.cpp" />
     <ClCompile Include="Classes\Models\Source files\Citizen.cpp" />
     <ClCompile Include="Classes\Models\Source files\City.cpp" />
-    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp" />
     <ClCompile Include="Classes\Utilities\Source files\Date.cpp" />
     <ClCompile Include="Classes\Models\Source files\DormBuilding.cpp" />
+    <ClCompile Include="Classes\Models\Commands\Source files\GenerateCommand.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Classes\Services\Source files\Simulation.cpp" />
     <ClCompile Include="Classes\Models\Source files\Miner.cpp" />
@@ -139,7 +140,7 @@
     <ClCompile Include="Classes\Models\Source files\Teacher.cpp" />
     <ClCompile Include="Classes\Models\Source files\Unemployed.cpp" />
     <ClCompile Include="Classes\Models\Source files\ModernBuilding.cpp" />
-    <ClCompile Include="Classes\Services\Source files\SimulationCommandProcessor.cpp" />
+    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp" />
     <ClCompile Include="Classes\Services\Source files\SimulationManager.cpp" />
     <ClCompile Include="Classes\Models\Commands\Source files\StepCommand.cpp" />
   </ItemGroup>
@@ -160,10 +161,10 @@
     <ClInclude Include="Classes\Utilities\Header files\Date.h" />
     <ClInclude Include="Classes\Models\Header files\DormBuilding.h" />
     <ClInclude Include="Classes\Models\Header files\ModernBuilding.h" />
-    <ClInclude Include="Classes\Services\Header files\SimulationCommandProcessor.h" />
     <ClInclude Include="Classes\Services\Header files\SimulationManager.h" />
     <ClInclude Include="Classes\Models\Commands\Header files\Command.h" />
     <ClInclude Include="Classes\Models\Commands\Header files\StepCommand.h" />
+    <ClInclude Include="Classes\Models\Commands\Header files\GenerateCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

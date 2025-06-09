@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MatrixProxy.h"
+#include 
 
 // The Matrix class is a template for a vector<T> wrapper that uses a proxy (MatrixProxy) for ease of indexing.
 template <typename T>

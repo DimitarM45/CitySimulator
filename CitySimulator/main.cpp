@@ -1,13 +1,9 @@
-#include "Classes/Services/Header files/SimulationManager.h"
-#include "Classes/Services/Header files/SimulationCommandProcessor.h"
-
 #include <iostream>
+
+#include <Services/SimulationManager.h>
 
 int main()
 {
-	CommandProcessor commandProcessor = new SimulationCommandProcessor();
-	HistoryManager historyManager = HistoryManager();
-	SimulationManager simManager(commandProcessor);
-
+	SimulationManager simManager(std::cout, std::cin, "history.bin");
 	simManager.run();
 }

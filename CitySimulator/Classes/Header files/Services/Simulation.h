@@ -20,12 +20,16 @@ public:
 
 	void executeSteps(int steps = 1);
 	void reset();
+
 	void addDenizen(const Citizen& denizen);
 
 	void saveState(std::ostream& outStream);
 	void configure(SeedOption seedOption);
 
 	unsigned getDeadPeopleCount() const;
+
+	Date getDate() const;
+
 private:
 	City city;
 	Date date;
@@ -33,7 +37,6 @@ private:
 	bool isCreatedSuccessfully;
 	unsigned currentDeadPeople;
 
-	void load(SeedOption option);
 	void loadState(std::istream& inStream);
 	void seed();
 };

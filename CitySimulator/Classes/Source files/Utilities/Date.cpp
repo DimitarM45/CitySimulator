@@ -271,7 +271,7 @@ unsigned int Date::getDaysInMonth(unsigned short month)
 	}
 }
 
-std::ostream& operator<<(std::ostream& outFile, const Date& date)
+std::ostream& operator<<(std::ostream& outStream, const Date& date)
 {
 	return outFile << date.getDateString();
 }

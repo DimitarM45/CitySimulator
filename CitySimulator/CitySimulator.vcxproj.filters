@@ -30,9 +30,6 @@
     <ClCompile Include="Classes\Services\Source files\Simulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Models\Source files\Miner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,7 +57,7 @@
     <ClCompile Include="Classes\Services\Source files\HistoryManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Services\Source files\SimulationCommandProcessor.cpp">
+    <ClCompile Include="Classes\Services\Source files\CommandProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Services\Source files\SimulationManager.cpp">
@@ -69,7 +66,7 @@
     <ClCompile Include="Classes\Models\Commands\Source files\StepCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Models\Commands\Source files\Command.cpp">
+    <ClCompile Include="Classes\Models\Commands\Source files\GenerateCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,9 +119,6 @@
     <ClInclude Include="Classes\Services\Header files\HistoryManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Services\Header files\SimulationCommandProcessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Services\Header files\SimulationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -132,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Models\Commands\Header files\StepCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Models\Commands\Header files\GenerateCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
