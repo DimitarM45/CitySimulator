@@ -1,9 +1,7 @@
 #pragma once
 
-#include "Command.h"
-#include <Models/simulation.h>
-
-#include <ostream>
+#include <Services/Simulation.h>
+#include <Models/Commands/Command.h>
 
 class GenerateCommand : public Command
 {

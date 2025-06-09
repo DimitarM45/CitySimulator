@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Command.h"
-#include "../../../Services/Header files/Simulation.h"
+#include <Services/Simulation.h>
+#include <Models/Commands/Command.h>
 
 class StepCommand : public Command
 {

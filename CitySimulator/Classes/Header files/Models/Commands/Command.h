@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Services/Simulation.h>
+
 class Command
 {
 public:
