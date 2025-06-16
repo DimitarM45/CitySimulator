@@ -13,26 +13,29 @@ bool AddCommand::execute()
 {
 	try
 	{
-		Building& building = simulation.getCity().getBuilding(yIndex, xIndex);
+		Building* building = simulation.getCity().getBuilding(yIndex, xIndex);
+
+		if (!building)
+			return false;
 
 		Citizen* citizen = nullptr;
 
 		switch (profession)
 		{
 		case Profession::Teacher:
-			citizen = new Teacher(citizenName, building, happiness, money, lifePoints);
+			citizen = new Teacher(citizenName, *building, happiness, money, lifePoints);
 			break;
 
 		case Profession::Miner:
-			citizen = new Miner(citizenName, building, happiness, money, lifePoints);
+			citizen = new Miner(citizenName, *building, happiness, money, lifePoints);
 			break;
 
 		case Profession::Programmer:
-			citizen = new Programmer(citizenName, building, happiness, money, lifePoints);
+			citizen = new Programmer(citizenName, *building, happiness, money, lifePoints);
 			break;
 
 		case Profession::Unemployed:
-			citizen = new Unemployed(citizenName, building, happiness, money, lifePoints);
+			citizen = new Unemployed(citizenName, *building, happiness, money, lifePoints);
 			break;
 		}
 

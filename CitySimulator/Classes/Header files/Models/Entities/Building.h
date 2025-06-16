@@ -21,6 +21,7 @@ public:
 
 	unsigned getRent() const;
 	bool getIsCentral() const;
+	Citizen* getDenizen(const std::string& name);
 
 	bool addDenizen(Citizen& denizen);
 	bool removeDenizen(const std::string& name);

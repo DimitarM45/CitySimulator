@@ -5,14 +5,15 @@
 class InfoCommand : public Command
 {
 public:
-	InfoCommand(Simulation& simulation, unsigned yIndex = -1, unsigned xIndex = -1, const std::string* name = nullptr);
+	InfoCommand(Simulation& simulation);
+	InfoCommand(Simulation& simulation, int yIndex, int xIndex, const std::string* name = nullptr);
 
 	bool execute() override;
 	std::string serializeOutput() override;
 
 private:
-	unsigned yIndex;
-	unsigned xIndex;
+	int yIndex;
+	int xIndex;
 	const std::string* name;
 };
 

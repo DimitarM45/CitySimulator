@@ -11,7 +11,12 @@ Building& City::getBuilding(unsigned yIndex, unsigned xIndex)
 
 unsigned City::getLength() const
 {
-	return buildings.getHeight();
+	return buildings.getLength();
+}
+
+unsigned City::getWidth() const
+{
+	return buildings.getWidth();
 }
 
 std::string City::getInfoString()

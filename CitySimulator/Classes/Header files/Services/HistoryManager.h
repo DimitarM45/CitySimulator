@@ -11,7 +11,7 @@ public:
 
 	bool writeHistory();
 
-	Simulation getSimulation() const;
+	Simulation& getSimulation() const;
 
 private:
 	unsigned cacheIndex;

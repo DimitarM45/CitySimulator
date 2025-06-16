@@ -139,11 +139,7 @@
     <ClCompile Include="Classes\Source files\Models\Entities\City.cpp" />
     <ClCompile Include="Classes\Source files\Models\Entities\DormBuilding.cpp" />
     <ClCompile Include="Classes\Header files\Models\Entities\ISerializable.h" />
-    <ClCompile Include="Classes\Source files\Models\Entities\Miner.cpp" />
     <ClCompile Include="Classes\Source files\Models\Entities\ModernBuilding.cpp" />
-    <ClCompile Include="Classes\Source files\Models\Entities\Programmer.cpp" />
-    <ClCompile Include="Classes\Source files\Models\Entities\Teacher.cpp" />
-    <ClCompile Include="Classes\Source files\Models\Entities\Unemployed.cpp" />
     <ClCompile Include="Classes\Source files\Services\CommandProcessor.cpp" />
     <ClCompile Include="Classes\Source files\Services\HistoryManager.cpp" />
     <ClCompile Include="Classes\Source files\Services\Simulation.cpp" />
@@ -166,6 +162,7 @@
     <ClCompile Include="Classes\Models\Commands\Source files\StepCommand.cpp" />
     <ClCompile Include="Classes\Source files\Models\Commands\RemoveCommand.cpp" />
     <ClCompile Include="Classes\Source files\Models\Commands\SaveCommand.cpp" />
+    <ClCompile Include="Classes\Source files\Models\Entities\Profession.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Header files\Models\Commands\AddCommand.h" />
@@ -177,11 +174,7 @@
     <ClInclude Include="Classes\Header files\Models\Entities\Citizen.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\City.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\DormBuilding.h" />
-    <ClInclude Include="Classes\Header files\Models\Entities\Miner.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\ModernBuilding.h" />
-    <ClInclude Include="Classes\Header files\Models\Entities\Programmer.h" />
-    <ClInclude Include="Classes\Header files\Models\Entities\Teacher.h" />
-    <ClInclude Include="Classes\Header files\Models\Entities\Unemployed.h" />
     <ClInclude Include="Classes\Header files\Services\CommandProcessor.h" />
     <ClInclude Include="Classes\Header files\Services\HistoryManager.h" />
     <ClInclude Include="Classes\Header files\Services\Simulation.h" />
@@ -213,6 +206,7 @@
     <ClInclude Include="Classes\Header files\Models\Commands\InfoCommand.h" />
     <ClInclude Include="Classes\Header files\Models\Commands\SaveCommand.h" />
     <ClInclude Include="Classes\Header files\Models\Commands\LoadCommand.h" />
+    <ClInclude Include="Classes\Header files\Models\Entities\Profession.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

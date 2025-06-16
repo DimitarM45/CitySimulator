@@ -35,6 +35,19 @@ bool Building::getIsCentral() const
 	return isCentral;
 }
 
+Citizen* Building::getDenizen(const std::string& name)
+{
+	unsigned denizenCount = denizens.size();
+
+	for (size_t i = 0; i < denizenCount; i++)
+	{
+		if (denizens[i]->getName() == name)
+			return denizens[i];
+	}
+
+	return nullptr;
+}
+
 bool Building::addDenizen(Citizen& denizen)
 { 
 	if (denizens.size() == denizenCapacity)

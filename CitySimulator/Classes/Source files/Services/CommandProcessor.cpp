@@ -42,7 +42,7 @@ void CommandProcessor::run()
 
 		try
 		{
-			outStream << (execute(commandTokens) ? "Command succeeded!" : "Command failed!") << '\n';
+			execute(commandTokens);
 		}
 		catch (const std::exception& e)
 		{

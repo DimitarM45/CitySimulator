@@ -8,10 +8,10 @@ class City
 public:
 	City();
 
-	Building& getBuilding(unsigned yIndex, unsigned xIndex);
+	Building* getBuilding(unsigned yIndex, unsigned xIndex);
 	
 	unsigned getLength() const;
-	unsigned getHeight() const;
+	unsigned getWidth() const;
 
 	std::string getInfoString();
 

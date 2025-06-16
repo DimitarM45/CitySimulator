@@ -9,18 +9,18 @@ template <typename T>
 class Matrix
 {
 public:
-	Matrix(unsigned width, unsigned height)
+	Matrix(unsigned width, unsigned length)
 	{
 		this->width = width;
-		this->height = height;
-		this->data = std::vector<T>(width * height);
+		this->length = length;
+		this->data = std::vector<T>(width * length);
 	}
 
-	Matrix(unsigned width, unsigned height, std::vector<T>& data)
+	Matrix(unsigned width, unsigned length, std::vector<T>& data)
 		: data(data)
 	{
 		this->width = width;
-		this->height = height;
+		this->length = length;
 	}
 
 	MatrixProxy<T> operator[](unsigned yIndex)
@@ -40,12 +40,12 @@ public:
 
 	unsigned getHeight() const
 	{
-		return height;
+		return length;
 	}
 
 private:
 	std::vector<T> data;
 	unsigned width;
-	unsigned height;
+	unsigned length;
 };
 
