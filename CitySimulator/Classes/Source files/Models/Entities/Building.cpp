@@ -88,10 +88,7 @@ void Building::setRent(unsigned rent)
 
 bool Building::isCentralBuilding(unsigned xIndex, unsigned yIndex)
 {
-	if (min(xIndex, yIndex) == -1)
-	{
-
-	}
+	
 }
 
 bool Building::serialize(const std::string& fileName) const
@@ -102,16 +99,4 @@ bool Building::serialize(const std::string& fileName) const
 bool Building::deserialize(const std::string& fileName) const
 {
 	return false;
-}
-
-short min(unsigned xIndex, unsigned yIndex)
-{
-	if (xIndex < yIndex)
-		return -1;
-
-	else if (xIndex > yIndex)
-		return 1;
-
-	else
-		return 0;
 }

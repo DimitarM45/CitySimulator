@@ -4,13 +4,6 @@
 #include <Models/Entities/Citizen.h>
 #include <Models/Entities/ISerializable.h>
 
-namespace BuildingRentValues
-{
-	const unsigned MODERN_RENT = 1000;
-	const unsigned APARTMENT_RENT = 500;
-	const unsigned DORM_RENT = 40;
-}
-
 class Building : public ISerializable
 {
 public:
@@ -42,6 +35,4 @@ protected:
 	void setRent(unsigned rent);
 	bool isCentralBuilding(unsigned yIndex, unsigned xIndex);
 };
-
-short min(unsigned yIndex, unsigned xIndex);
 

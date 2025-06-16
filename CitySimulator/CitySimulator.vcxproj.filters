@@ -129,6 +129,18 @@
     <ClCompile Include="Classes\Source files\Models\Entities\Profession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Entities\Miner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Entities\Programmer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Entities\Teacher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Entities\Unemployed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Models\Header files\Citizen.h">
@@ -255,6 +267,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Header files\Models\Entities\Profession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Entities\Miner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Entities\Programmer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Entities\Teacher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Entities\Unemployed.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
