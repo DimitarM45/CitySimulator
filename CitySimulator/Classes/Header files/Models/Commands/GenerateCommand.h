@@ -6,12 +6,13 @@
 class GenerateCommand : public Command
 {
 public:
-	GenerateCommand(Simulation& simulation);
+	GenerateCommand(Simulation& simulation, SeedOption seedOption);
 
 	bool execute() override;
-private:
-	Simulation& simulation;
 
 	std::string serializeOutput() override;
+
+private:
+	SeedOption seedOption;
 };
 

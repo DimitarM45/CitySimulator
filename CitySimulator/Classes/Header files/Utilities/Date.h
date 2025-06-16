@@ -16,7 +16,7 @@ enum class OrderOption
 	DMY = 1,
 };
 
-// The date class encapsulates day, month and year and methods for moving the date forward and backward, and formatting it as a string.
+// The date class encapsulates day, month and year, methods for moving the date forward and backward, and formatting it as a string.
 class Date
 {
 public:

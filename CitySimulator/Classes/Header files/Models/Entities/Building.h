@@ -1,25 +1,41 @@
 #pragma once
 
-#include "Citizen.h"
-#include "../../Utilities/Header files/Matrix.h"
-
 #include <vector>
+#include <Models/Entities/Citizen.h>
+#include <Models/Entities/ISerializable.h>
 
-class Building
+namespace BuildingRentValues
+{
+	const unsigned MODERN_RENT = 1000;
+	const unsigned APARTMENT_RENT = 500;
+	const unsigned DORM_RENT = 40;
+}
+
+class Building : public ISerializable
 {
 public:
-	Building(unsigned denizenCount, unsigned yIndex, unsigned xIndex, unsigned rent);
+	Building(unsigned denizenCapacity, unsigned yIndex, unsigned xIndex, unsigned rent);
+	virtual ~Building() = default;
 	
 	virtual void passDay(unsigned dateDay) = 0;
 
 	unsigned getRent() const;
 	bool getIsCentral() const;
 
-private:
+	bool addDenizen(Citizen& denizen);
+	bool removeDenizen(const std::string& name);
+
+	virtual std::string getInfoString(const std::string* name = nullptr) const = 0;
+
+	virtual bool serialize(const std::string& fileName) const = 0;
+	virtual bool deserialize(const std::string& fileName) const = 0;
+
+protected:
 	std::vector<Citizen*> denizens;
 	unsigned rent;
 	unsigned yIndex;
 	unsigned xIndex;
+	unsigned denizenCapacity;
 	bool isCentral;
 
 	void setRent(unsigned rent);

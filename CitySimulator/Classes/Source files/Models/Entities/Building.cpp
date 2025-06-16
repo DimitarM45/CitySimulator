@@ -1,6 +1,6 @@
-#include "../Header files/Building.h"
-
 #include <cmath>
+
+#include <Models/Entities/Building.h>
 
 namespace BuildingConstants
 {
@@ -8,10 +8,8 @@ namespace BuildingConstants
 	const unsigned SUBURBAN_RENT_MULTIPLIER = 0.2;
 }
 
-using namespace BuildingConstants;
-
-Building::Building(unsigned denizenCount, unsigned yIndex, unsigned xIndex, unsigned rent)
-	: yIndex(yIndex), xIndex(xIndex)
+Building::Building(unsigned denizenCapacity, unsigned yIndex, unsigned xIndex, unsigned rent)
+	: denizenCapacity(denizenCapacity), yIndex(yIndex), xIndex(xIndex)
 {
 	this->isCentral = isCentralBuilding(yIndex, xIndex);
 	setRent(rent);
@@ -23,7 +21,7 @@ void Building::passDay(unsigned day)
 
 	for (size_t i = 0; i < denizenCount; i++)
 	{
-		denizens[i].live(day);
+		denizens[i]->live(day);
 	}
 }
 
@@ -37,8 +35,37 @@ bool Building::getIsCentral() const
 	return isCentral;
 }
 
+bool Building::addDenizen(Citizen& denizen)
+{ 
+	if (denizens.size() == denizenCapacity)
+		return false;
+
+	denizens.push_back(&denizen);
+
+	return true;
+}
+
+bool Building::removeDenizen(const std::string& name)
+{
+	unsigned denizenCount = denizens.size();
+
+	for (size_t i = 0; i < denizenCount; i++)
+	{
+		if (denizens[i]->getName() == name)
+		{
+			denizens[i] = nullptr;
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void Building::setRent(unsigned rent)
 {
+	using namespace BuildingConstants;
+
 	if (isCentral)
 		rent *= CENTRAL_RENT_MULTIPLIER;
 
@@ -52,6 +79,16 @@ bool Building::isCentralBuilding(unsigned xIndex, unsigned yIndex)
 	{
 
 	}
+}
+
+bool Building::serialize(const std::string& fileName) const
+{
+	return false;
+}
+
+bool Building::deserialize(const std::string& fileName) const
+{
+	return false;
 }
 
 short min(unsigned xIndex, unsigned yIndex)

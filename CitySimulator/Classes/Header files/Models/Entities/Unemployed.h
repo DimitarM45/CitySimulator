@@ -1,13 +1,17 @@
 #pragma once
 
-#include "Citizen.h"
+#include <Models/Entities/Citizen.h>
 
-class Unemployed
+class Unemployed : public Citizen
 {
 public:
-	Unemployed();
+	Unemployed(const std::string& name, Building& building, unsigned happiness, unsigned money, unsigned lifePoints);
 
-private:
+	// Inherited via Citizen
+	void live(unsigned dateDay) override;
 
+	// Inherited via Citizen
+	bool serialize(const std::string& fileName) const override;
+	bool deserialize(const std::string& fileName) const override;
 };
 

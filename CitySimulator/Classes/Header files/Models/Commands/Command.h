@@ -2,6 +2,12 @@
 
 #include <Services/Simulation.h>
 
+namespace CommandOutputMessages
+{
+	const std::string SUCCESS_OUTPUT_MESSAGE = "Success!";
+	const std::string FAILURE_OUTPUT_MESSAGE = "Failure!";
+}
+
 class Command
 {
 public:
@@ -13,7 +19,7 @@ public:
 
 	virtual std::string serializeOutput() = 0;
 
-private:
+protected:
 	Simulation& simulation;
 };
 

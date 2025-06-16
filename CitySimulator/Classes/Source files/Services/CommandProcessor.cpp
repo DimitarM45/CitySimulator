@@ -1,7 +1,15 @@
-#include "../Header files/CommandProcessor.h"
-#include "../../Models/Commands/Header files/StepCommand.h"
-
+#include <iostream>
 #include <stdexcept>
+#include <Services/Simulation.h>
+#include <Services/CommandProcessor.h>
+#include <Models/Commands/AddCommand.h>
+#include <Models/Commands/StepCommand.h>
+#include <Models/Commands/InfoCommand.h>
+#include <Models/Commands/SaveCommand.h>
+#include <Models/Commands/LoadCommand.h>
+#include <Models/Commands/RemoveCommand.h>
+#include <Models/Commands/GenerateCommand.h>
+
 
 namespace CommandProcessorErrorMessages
 {
@@ -12,10 +20,7 @@ namespace CommandProcessorErrorMessages
 using namespace CommandProcessorErrorMessages;
 
 CommandProcessor::CommandProcessor(std::ostream& outStream, std::istream& inStream, Simulation& simulation)
-	: outStream(outStream), inStream(inStream), simulation(simulation)
-{
-	setSimulation(simulation);
-}
+	: outStream(outStream), inStream(inStream), simulation(simulation) { }
 
 void CommandProcessor::run()
 {
@@ -46,19 +51,6 @@ void CommandProcessor::run()
 	}
 }
 
-Simulation HistoryManager::getSimulation() const
-{
-	return *simulation;
-}
-
-void CommandProcessor::setSimulation(Simulation* simulation)
-{
-	if (!simulation)
-		throw std::invalid_argument(INVALID_SIMULATION_ERROR_MESSAGE);
-
-	this->simulation = simulation;
-}
-
 bool CommandProcessor::execute(std::vector<std::string> commandTokens)
 {
 	unsigned tokensSize = commandTokens.size();
@@ -69,15 +61,15 @@ bool CommandProcessor::execute(std::vector<std::string> commandTokens)
 
 	if (commandString == "generate")
 	{
-
+		command = new GenerateCommand(simulation);
 	}
 	else if (commandString == "add")
 	{
-
+		command = new AddCommand();
 	}
 	else if (commandString == "remove")
 	{
-
+		command = new RemoveCommand();
 	}
 	else if (commandString == "step")
 	{
@@ -90,15 +82,15 @@ bool CommandProcessor::execute(std::vector<std::string> commandTokens)
 	}
 	else if (commandString == "info")
 	{
-
+		command = new InfoCommand();
 	}
 	else if (commandString == "save")
 	{
-
+		command = new SaveCommand();
 	}
 	else if (commandString == "load")
 	{
-
+		command = new LoadCommand();
 	}
 	else
 		throw std::invalid_argument(UNKNOWN_COMMAND_ERROR_MESSAGE);

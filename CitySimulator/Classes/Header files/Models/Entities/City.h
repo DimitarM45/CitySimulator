@@ -1,18 +1,19 @@
 #pragma once
 
-#include "Building.h"
-#include "../../Utilities/Header files/Matrix.h"
-
-#include <ctime>
-#include <vector>
+#include <Models/Entities/Building.h>
+#include <Utilities/Matrix.h>
 
 class City
 {
 public:
 	City();
-	City(const City& other);
-	City& operator=(const City& other);
-	~City();
+
+	Building& getBuilding(unsigned yIndex, unsigned xIndex);
+	
+	unsigned getLength() const;
+	unsigned getHeight() const;
+
+	std::string getInfoString();
 
 private:
 	Matrix<Building> buildings;

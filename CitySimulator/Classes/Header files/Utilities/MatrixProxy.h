@@ -25,7 +25,7 @@ public:
 	}
 
 private:
-	std::vector<T> data;
+	std::vector<T>& data;
 	unsigned yIndex;
 	unsigned width;
 };

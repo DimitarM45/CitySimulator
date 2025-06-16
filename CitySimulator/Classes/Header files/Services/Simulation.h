@@ -1,11 +1,9 @@
 #pragma once
 
-#include "HistoryManager.h"
-#include "CommandProcessor.h"
-#include "../../Models/Header files/City.h"
-#include "../../Utilities/Header files/Date.h"
-
 #include <string>
+#include <Utilities/Date.h>
+#include <Models/Entities/City.h>
+#include <Models/Entities/Citizen.h>
 
 enum class SeedOption
 {
@@ -17,14 +15,17 @@ class Simulation
 {
 public:
 	Simulation();
+	Simulation(SeedOption seedOption);
 
 	void executeSteps(int steps = 1);
+	void configure(SeedOption seedOption);
 	void reset();
 
-	void addDenizen(const Citizen& denizen);
+	City& getCity();
+	bool addDenizen(unsigned yIndex, unsigned xIndex, Citizen& denizen);
+	bool removeDenizen(unsigned yIndex, unsigned xIndex, const std::string& name);
 
 	void saveState(std::ostream& outStream);
-	void configure(SeedOption seedOption);
 
 	unsigned getDeadPeopleCount() const;
 
@@ -34,7 +35,7 @@ private:
 	City city;
 	Date date;
 	bool isReset;
-	bool isCreatedSuccessfully;
+	bool isConfigured;
 	unsigned currentDeadPeople;
 
 	void loadState(std::istream& inStream);

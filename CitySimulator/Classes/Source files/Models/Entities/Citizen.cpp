@@ -1,8 +1,7 @@
-#include "../Header files/Citizen.h"
-
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include <Models/Entities/Citizen.h>
 
 namespace CitizenErrorMessages
 {
@@ -14,7 +13,7 @@ namespace CitizenErrorMessages
 
 using namespace CitizenErrorMessages;
 
-Citizen::Citizen(const std::string& name, Building& building, unsigned happiness, double money, unsigned lifePoints)
+Citizen::Citizen(const std::string& name, Building& building, unsigned happiness, unsigned money, unsigned lifePoints)
 	: building(building)
 {
 	this->name = name;
@@ -34,7 +33,7 @@ unsigned Citizen::getHappiness() const
 	return happiness;
 }
 
-double Citizen::getMoney() const
+unsigned Citizen::getMoney() const
 {
 	return money;
 }
@@ -60,20 +59,27 @@ void Citizen::setHappiness(unsigned happiness)
 	this->happiness = happiness;
 }
 
-void Citizen::setMoney(double money)
+void Citizen::setMoney(unsigned money)
 {
-	if (happiness <= 0)
-		throw std::invalid_argument(INVALID_MONEY_ERROR_MESSAGE);
-
 	this->money = money;
 }
 
-void Citizen::setLifePoints(int lifePoints)
+void Citizen::setLifePoints(unsigned lifePoints)
 {
-	if (happiness == 0)
+	if (lifePoints == 0)
 		throw std::invalid_argument(INVALID_LIFE_POINTS_ERROR_MESSAGE);
 
 	this->lifePoints = lifePoints;
+}
+
+bool Citizen::serialize(const std::string& fileName) const
+{
+	return false;
+}
+
+bool Citizen::deserialize(const std::string& fileName) const
+{
+	return Citizen();
 }
 
 std::ostream& Citizen::operator<<(std::ostream& out)

@@ -1,4 +1,5 @@
-#include "../Header files/HistoryManager.h"
+#include <string>
+#include <Services/Simulation.h>
 
 HistoryManager::HistoryManager(Simulation& simulation, const std::string& historyFileName)
 	: simulation(simulation) 

@@ -1,14 +1,17 @@
-#include "../Header files/GenerateCommand.h"
+#include <Services/Simulation.h>
+#include <Models/Commands/GenerateCommand.h>
 
-GenerateCommand::GenerateCommand(std::ostream& outStream, Simulation& simulation)
-	: Command(outStream), simulation(simulation) { }
+GenerateCommand::GenerateCommand(Simulation& simulation, SeedOption seedOption)
+	: Command(simulation) { }
 
 bool GenerateCommand::execute()
 {
-	simulation.configure();
+	simulation.configure(seedOption);
+
+	return true;
 }
 
-void GenerateCommand::serializeOutput()
+std::string GenerateCommand::serializeOutput()
 {
-	outStream << simulation.getDate();
+	return simulation.getDate().getDateString();
 }

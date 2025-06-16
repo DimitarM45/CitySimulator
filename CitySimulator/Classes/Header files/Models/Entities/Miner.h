@@ -1,9 +1,17 @@
 #pragma once
 
-#include "Citizen.h"
+#include <Models/Entities/Citizen.h>
 
-class Miner : Citizen
+class Miner : public Citizen
 {
+public:
+	Miner(const std::string& name, Building& building, unsigned happiness, unsigned money, unsigned lifePoints);
 
+	// Inherited via Citizen
+	void live(unsigned dateDay) override;
+
+	// Inherited via Citizen
+	bool serialize(const std::string& fileName) const override;
+	bool deserialize(const std::string& fileName) const override;
 };
 

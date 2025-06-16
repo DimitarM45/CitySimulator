@@ -120,6 +120,24 @@
     <ClCompile Include="Classes\Source files\Models\Entities\ModernBuilding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Commands\AddCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Commands\RemoveCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Commands\InfoCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Commands\SaveCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Models\Commands\LoadCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Header files\Models\Entities\ISerializable.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\Models\Header files\Citizen.h">
@@ -240,6 +258,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Header files\Models\Entities\Unemployed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Commands\AddCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Commands\RemoveCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Commands\InfoCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Commands\SaveCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Models\Commands\LoadCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
