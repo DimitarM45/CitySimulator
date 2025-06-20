@@ -15,6 +15,8 @@ private:
 	std::istream& inStream;
 	Simulation& simulation;
 
+	std::string currentSaveFileName;
+
 	bool execute(std::vector<std::string> commandTokens);
 	std::vector<std::string> parseCommand(std::string command);
 };

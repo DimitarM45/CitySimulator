@@ -78,9 +78,6 @@
     <ClCompile Include="Classes\Source files\Services\CommandProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Source files\Services\HistoryManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Source files\Services\Simulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,9 +94,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Source files\Models\Entities\Citizen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Source files\Models\Entities\City.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Source files\Models\Entities\DormBuilding.cpp">
@@ -123,9 +117,6 @@
     <ClCompile Include="Classes\Source files\Models\Commands\LoadCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Header files\Models\Entities\ISerializable.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Source files\Models\Entities\Profession.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -139,6 +130,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Source files\Models\Entities\Unemployed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Header files\Utilities\ErrorMessages.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Services\CitizenSeeder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Source files\Services\BuildingSeeder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -215,9 +215,6 @@
     <ClInclude Include="Classes\Header files\Services\CommandProcessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Header files\Services\HistoryManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Header files\Services\Simulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -240,9 +237,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Header files\Models\Entities\Citizen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Header files\Models\Entities\City.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Header files\Models\Entities\DormBuilding.h">
@@ -279,6 +273,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Header files\Models\Entities\Unemployed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Services\CitizenSeeder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Header files\Services\BuildingSeeder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

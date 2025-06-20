@@ -125,6 +125,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\Source files\Services\BuildingSeeder.cpp" />
+    <ClCompile Include="Classes\Source files\Services\CitizenSeeder.cpp" />
+    <ClCompile Include="Classes\Header files\Utilities\ErrorMessages.h" />
     <ClCompile Include="Classes\Source files\Models\Commands\AddCommand.cpp" />
     <ClCompile Include="Classes\Services\Source files\HistoryManager.cpp" />
     <ClCompile Include="Classes\Models\Source files\ApartmentBuilding.cpp" />
@@ -136,12 +139,9 @@
     <ClCompile Include="Classes\Source files\Models\Entities\ApartmentBuilding.cpp" />
     <ClCompile Include="Classes\Source files\Models\Entities\Building.cpp" />
     <ClCompile Include="Classes\Source files\Models\Entities\Citizen.cpp" />
-    <ClCompile Include="Classes\Source files\Models\Entities\City.cpp" />
     <ClCompile Include="Classes\Source files\Models\Entities\DormBuilding.cpp" />
-    <ClCompile Include="Classes\Header files\Models\Entities\ISerializable.h" />
     <ClCompile Include="Classes\Source files\Models\Entities\ModernBuilding.cpp" />
     <ClCompile Include="Classes\Source files\Services\CommandProcessor.cpp" />
-    <ClCompile Include="Classes\Source files\Services\HistoryManager.cpp" />
     <ClCompile Include="Classes\Source files\Services\Simulation.cpp" />
     <ClCompile Include="Classes\Source files\Services\SimulationManager.cpp" />
     <ClCompile Include="Classes\Source files\Utilities\Date.cpp" />
@@ -169,6 +169,8 @@
     <ClCompile Include="Classes\Source files\Models\Entities\Unemployed.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\Header files\Services\BuildingSeeder.h" />
+    <ClInclude Include="Classes\Header files\Services\CitizenSeeder.h" />
     <ClInclude Include="Classes\Header files\Models\Commands\AddCommand.h" />
     <ClInclude Include="Classes\Header files\Models\Commands\Command.h" />
     <ClInclude Include="Classes\Header files\Models\Commands\GenerateCommand.h" />
@@ -176,11 +178,9 @@
     <ClInclude Include="Classes\Header files\Models\Entities\ApartmentBuilding.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\Building.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\Citizen.h" />
-    <ClInclude Include="Classes\Header files\Models\Entities\City.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\DormBuilding.h" />
     <ClInclude Include="Classes\Header files\Models\Entities\ModernBuilding.h" />
     <ClInclude Include="Classes\Header files\Services\CommandProcessor.h" />
-    <ClInclude Include="Classes\Header files\Services\HistoryManager.h" />
     <ClInclude Include="Classes\Header files\Services\Simulation.h" />
     <ClInclude Include="Classes\Header files\Services\SimulationManager.h" />
     <ClInclude Include="Classes\Header files\Utilities\Date.h" />

@@ -17,9 +17,10 @@ public:
 
 	virtual bool execute() = 0;
 
-	virtual std::string serializeOutput() = 0;
+	const std::string& getOutput() { return output; }
 
 protected:
 	Simulation& simulation;
+	std::string output;
 };
 

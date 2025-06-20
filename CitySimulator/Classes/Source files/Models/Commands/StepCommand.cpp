@@ -10,8 +10,3 @@ bool StepCommand::execute()
 
 	return true;
 }
-
-std::string StepCommand::serializeOutput()
-{
-	return std::to_string(simulation.getDeadPeopleCount());
-}

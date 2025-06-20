@@ -5,10 +5,12 @@
 class Unemployed : public Profession
 {
 public:
-	Unemployed();
+	Unemployed(Citizen& citizen);
 
-	void work(unsigned& life) const override;
+	void work() const override;
 
-	Unemployed* clone() const override;
+	Unemployed* clone(Citizen& citizen) const override;
+
+	const std::string getInfoString() const override;
 };
 

@@ -39,6 +39,9 @@ public:
 	Date& operator--();
 	Date operator--(int);
 
+	bool operator==(const Date& other);
+	bool operator!=(const Date& other);
+
 	void format(FormatOption formatOption, OrderOption orderOption);
 
 private:

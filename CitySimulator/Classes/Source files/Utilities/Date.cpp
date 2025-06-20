@@ -1,5 +1,6 @@
 #include <Utilities/Date.h>
 
+#include <ctime>
 #include <stdexcept>
 
 constexpr unsigned YEAR_MAX_VALUE = 10000;
@@ -14,7 +15,17 @@ namespace DateErrorMessages
 
 using namespace DateErrorMessages;
 
-Date::Date() : Date(1, 1, 1) { format(FormatOption::ForwardSlash, OrderOption::DMY); }
+Date::Date()
+{
+	time_t currentSystemTime = std::time(nullptr);
+	std::tm* localTime = std::localtime(&currentSystemTime);
+
+	day = localTime->tm_mday;
+	month = localTime->tm_mon + 1;
+	year = localTime->tm_year + 1900;
+
+	format(FormatOption::ForwardSlash, OrderOption::DMY); 
+}
 
 Date::Date(unsigned short day, unsigned short month, unsigned int year)
 	: Date(day, month, year, FormatOption::ForwardSlash, OrderOption::DMY) {
@@ -141,6 +152,16 @@ Date Date::operator--(int)
 	moveDateBackward(1);
 
 	return date;
+}
+
+bool Date::operator==(const Date& other)
+{
+	return this->day == other.day && this->month == other.month && this->year == other.year;
+}
+
+bool Date::operator!=(const Date& other)
+{
+	return !(*this == other);
 }
 
 void Date::format(FormatOption formatOption, OrderOption orderOption)
@@ -273,5 +294,5 @@ unsigned int Date::getDaysInMonth(unsigned short month)
 
 std::ostream& operator<<(std::ostream& outStream, const Date& date)
 {
-	return outFile << date.getDateString();
+	return outStream << date.getDateString();
 }

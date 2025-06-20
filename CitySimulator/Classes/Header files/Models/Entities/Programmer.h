@@ -5,10 +5,12 @@
 class Programmer : public Profession
 {
 public:
-	Programmer();
+	Programmer(Citizen& citizen);
 
-	void work(unsigned& happiness) const override;
+	void work() const override;
 
-	Programmer* clone() const override;
+	Programmer* clone(Citizen& citizen) const override;
+
+	const std::string getInfoString() const override;
 };
 

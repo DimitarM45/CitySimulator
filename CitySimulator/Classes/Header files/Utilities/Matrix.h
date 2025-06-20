@@ -16,11 +16,11 @@ public:
 		this->data = std::vector<T>(width * length);
 	}
 
-	Matrix(unsigned width, unsigned length, std::vector<T>& data)
-		: data(data)
+	Matrix(unsigned width, unsigned length, std::vector<T> data)
 	{
 		this->width = width;
 		this->length = length;
+		this->data = data;
 	}
 
 	MatrixProxy<T> operator[](unsigned yIndex)
@@ -38,7 +38,7 @@ public:
 		return width;
 	}
 
-	unsigned getHeight() const
+	unsigned getLength() const
 	{
 		return length;
 	}

@@ -1,14 +1,21 @@
 #include <Models/Entities/Unemployed.h>
 
-Unemployed::Unemployed()
-	: Profession(0, 0) { }
+Unemployed::Unemployed(Citizen& citizen)
+	: Profession(citizen, 0, 0) { }
 
-void Unemployed::work(unsigned& life) const
+void Unemployed::work() const
 {
-	life = max(0, life - 1);
+	citizen.setLifePoints(max(0, citizen.getLifePoints() - 1));
 }
 
-Unemployed* Unemployed::clone() const
+Unemployed* Unemployed::clone(Citizen& citizen) const
 {
-	return new Unemployed(*this);
+	return new Unemployed(citizen);
+}
+
+const std::string Unemployed::getInfoString() const
+{
+	std::string infoString("Unemployed ");
+
+	return infoString.append(Profession::getInfoString());
 }

@@ -1,59 +1,38 @@
 #include <Models/Commands/AddCommand.h>
 
-#include <Models/Entities/Miner.h>
-#include <Models/Entities/Teacher.h>
-#include <Models/Entities/Programmer.h>
-#include <Models/Entities/Unemployed.h>
+#include <Models/Entities/Citizen.h>
 
-AddCommand::AddCommand(Simulation& simulation, unsigned yIndex, unsigned xIndex, const std::string& citizenName, Profession job, unsigned happiness, unsigned money, unsigned lifePoints)
-	: Command(simulation), citizenName(citizenName), yIndex(yIndex), xIndex(xIndex), happiness(happiness), money(money), lifePoints(lifePoints), isSuccessful(false) {
-}
+AddCommand::AddCommand(Simulation& simulation, int yIndex, int xIndex, const std::string& citizenName, ProfessionType professionType, int happiness, int money, int lifePoints)
+	: Command(simulation), citizenName(citizenName), professionType(professionType), yIndex(yIndex), xIndex(xIndex), happiness(happiness), money(money), lifePoints(lifePoints) { }
 
 bool AddCommand::execute()
 {
+	using namespace CommandOutputMessages;
+
 	try
 	{
-		Building* building = simulation.getCity().getBuilding(yIndex, xIndex);
+		Building* building = simulation.getBuildings()[yIndex][xIndex];
 
 		if (!building)
-			return false;
+		 	return false;
 
-		Citizen* citizen = nullptr;
+		Profession* profession = nullptr;
 
-		switch (profession)
+		Citizen citizen(citizenName, *building, professionType, happiness, money, lifePoints);
+
+		if (simulation.addCitizen(yIndex, xIndex, citizen))
 		{
-		case Profession::Teacher:
-			citizen = new Teacher(citizenName, *building, happiness, money, lifePoints);
-			break;
-
-		case Profession::Miner:
-			citizen = new Miner(citizenName, *building, happiness, money, lifePoints);
-			break;
-
-		case Profession::Programmer:
-			citizen = new Programmer(citizenName, *building, happiness, money, lifePoints);
-			break;
-
-		case Profession::Unemployed:
-			citizen = new Unemployed(citizenName, *building, happiness, money, lifePoints);
-			break;
+			output = SUCCESS_OUTPUT_MESSAGE;
+		}
+		else
+		{
+			output = FAILURE_OUTPUT_MESSAGE;
 		}
 
-		isSuccessful = simulation.addDenizen(yIndex, xIndex, *citizen);
-
-		delete citizen;
-
-		return isSuccessful;
+		return true;
 	}
 	catch (...)
 	{
 		return false;
 	}
-}
-
-std::string AddCommand::serializeOutput()
-{
-	using namespace CommandOutputMessages;
-
-	return isSuccessful ? SUCCESS_OUTPUT_MESSAGE : FAILURE_OUTPUT_MESSAGE;
 }

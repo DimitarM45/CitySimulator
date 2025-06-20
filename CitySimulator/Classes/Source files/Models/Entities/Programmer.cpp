@@ -1,4 +1,5 @@
 #include <Models/Entities/Programmer.h>
+#include <Models/Entities/Citizen.h>
 
 namespace ProgrammerConstants
 {
@@ -8,15 +9,22 @@ namespace ProgrammerConstants
 
 using namespace ProgrammerConstants;
 
-Programmer::Programmer()
-	: Profession(MIN_PROGRAMMER_SALARY, MAX_PROGRAMMER_SALARY) { }
+Programmer::Programmer(Citizen& citizen)
+	: Profession(citizen, MIN_PROGRAMMER_SALARY, MAX_PROGRAMMER_SALARY) { }
 
-void Programmer::work(unsigned& happiness) const
+void Programmer::work() const
 {
-	happiness = max(0, happiness - 1);
+	citizen.setHappiness(max(0, citizen.getHappiness() - 1));
 }
 
-Programmer* Programmer::clone() const
+Programmer* Programmer::clone(Citizen& citizen) const
 {
-	return new Programmer(*this);
+	return new Programmer(citizen);
+}
+
+const std::string Programmer::getInfoString() const
+{
+	std::string infoString("Programmer ");
+
+	return infoString.append(Profession::getInfoString());
 }

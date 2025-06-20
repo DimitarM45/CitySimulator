@@ -1,34 +1,37 @@
 #include <Models/Commands/InfoCommand.h>
 
-InfoCommand::InfoCommand(Simulation& simulation, int yIndex, int xIndex, const std::string* name)
-	: Command(simulation), yIndex(yIndex), xIndex(xIndex), name(name) { }
+InfoCommand::InfoCommand(Simulation& simulation, int yIndex, int xIndex, const std::string* citizenName)
+	: Command(simulation), yIndex(yIndex), xIndex(xIndex), citizenName(citizenName) {
+}
 
 InfoCommand::InfoCommand(Simulation& simulation)
-	: InfoCommand(simulation, -1, -1) { }
+	: InfoCommand(simulation, -1, -1) {
+}
 
 bool InfoCommand::execute()
 {
-	if (!name && yIndex == -1 && xIndex == -1)
+	if (!citizenName && yIndex == -1 && xIndex == -1)
 	{
-		simulation.getCity().getInfoString();
+		output = simulation.getAllInfo();
 	}
-	else if (!name && yIndex != -1 && xIndex != -1)
+	else if (!citizenName && yIndex != -1 && xIndex != -1)
 	{
-		simulation.getCity().getBuilding(yIndex, xIndex);
+		output = simulation.getBuildingInfo(yIndex, xIndex);
 	}
 	else
 	{
-		Citizen* citizen = simulation.getCity().getBuilding(yIndex, xIndex).getDenizen(*name);
+		Building* building = simulation.getBuildings()[yIndex][xIndex];
+
+		if (!building)
+			return false;
+
+		Citizen* citizen = building->getCitizen(*citizenName);
 
 		if (!citizen)
 			return false;
 
-
-		citizen->getInfoString();
+		output = citizen->getInfoString();
 	}
-}
 
-std::string InfoCommand::serializeOutput()
-{
-	return 
+	return true;
 }

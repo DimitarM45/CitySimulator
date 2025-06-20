@@ -1,16 +1,22 @@
 #include <Models/Commands/RemoveCommand.h>
 
 RemoveCommand::RemoveCommand(Simulation& simulation, unsigned yIndex, unsigned xIndex, const std::string& name)
-    : Command(simulation), yIndex(yIndex), xIndex(xIndex), name(name), isSuccessful(false) { }
+    : Command(simulation), yIndex(yIndex), xIndex(xIndex), name(name) { }
 
 bool RemoveCommand::execute()
 {
-    return simulation.removeDenizen(yIndex, xIndex, name);
-}
+	using namespace CommandOutputMessages;
 
-std::string RemoveCommand::serializeOutput()
-{
-    using namespace CommandOutputMessages;
+	bool isSuccessful = simulation.removeCitizen(yIndex, xIndex, name);
 
-    return isSuccessful ? SUCCESS_OUTPUT_MESSAGE : FAILURE_OUTPUT_MESSAGE;
+	if (isSuccessful)
+	{
+		output = SUCCESS_OUTPUT_MESSAGE;
+	}
+	else
+	{
+		output = FAILURE_OUTPUT_MESSAGE;
+	}
+
+	return isSuccessful;
 }

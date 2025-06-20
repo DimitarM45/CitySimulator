@@ -10,8 +10,6 @@ public:
 
 	bool execute() override;
 
-	std::string serializeOutput() override;
-
 private:
 	int steps;
 };

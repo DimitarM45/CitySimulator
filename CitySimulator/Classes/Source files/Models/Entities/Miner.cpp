@@ -8,15 +8,22 @@ namespace MinerConstants
 
 using namespace MinerConstants;
 
-Miner::Miner()
-	: Profession(MINER_MIN_SALARY, MINER_MAX_SALARY) { }
+Miner::Miner(Citizen& citizen)
+	: Profession(citizen, MINER_MIN_SALARY, MINER_MAX_SALARY) { }
 
-void Miner::work(unsigned& life) const
+void Miner::work() const
 {
-	life = max(0, life - 1);
+	citizen.setLifePoints(max(0, citizen.getLifePoints() - 1));
 }
 
-Miner* Miner::clone() const
+Miner* Miner::clone(Citizen& citizen) const
 {
-	return new Miner(*this);
+	return new Miner(citizen);
+}
+
+const std::string Miner::getInfoString() const
+{
+	std::string infoString("Miner ");
+
+	return infoString.append(Profession::getInfoString());
 }

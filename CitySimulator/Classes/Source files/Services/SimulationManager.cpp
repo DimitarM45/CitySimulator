@@ -1,8 +1,9 @@
 #include <string>
 #include <iostream>
+#include <Services/SimulationManager.h>
 
-SimulationManager::SimulationManager(std::ostream& outStream, std::istream& inStream, const std::string& historyFileName)
-	: outStream(outStream), inStream(inStream), simulation(), processor(outStream, inStream, simulation), manager(simulation, historyFileName) { }
+SimulationManager::SimulationManager(std::ostream& outStream, std::istream& inStream)
+	: outStream(outStream), inStream(inStream), simulation(), processor(outStream, inStream, simulation) { }
 
 void SimulationManager::run()
 {

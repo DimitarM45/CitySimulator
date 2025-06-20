@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+
 #include <Models/Entities/Citizen.h>
 
 #include <Models/Entities/Miner.h>
@@ -10,16 +11,22 @@
 
 namespace CitizenErrorMessages
 {
-	const std::string INVALID_HAPPINESS_ERROR_MESSAGE = "Cannot instantiate a citizen with 0 happiness!";
-	const std::string INVALID_MONEY_ERROR_MESSAGE = "Cannot instantiate a citizen with 0 or negative money!";
-	const std::string INVALID_LIFE_POINTS_ERROR_MESSAGE = "Cannot instantiate a citizen with 0 life points!";
+	const std::string INVALID_HAPPINESS_ERROR_MESSAGE = "Citizen happiness cannot be a negative value!";
+	const std::string INVALID_MONEY_ERROR_MESSAGE = "Citizen money cannot be a negative value!";
+	const std::string INVALID_LIFE_POINTS_ERROR_MESSAGE = "Citizen life points cannot be a negative value!";
 	const std::string INVALID_NAME_ERROR_MESSAGE = "Cannot instantiate a citizen with an empty name!";
 	const std::string INVALID_PROFESSION_ERROR_MESSAGE = "No such profession!";
 }
 
-using namespace CitizenErrorMessages;
+namespace CitizenConstants
+{
+	constexpr unsigned DEFAULT_FOOD_PRICE = 50;
+}
 
-Citizen::Citizen(const std::string& name, Building& building, ProfessionType professionType, unsigned happiness, unsigned money, unsigned lifePoints)
+using namespace CitizenErrorMessages;
+using namespace CitizenConstants;
+
+Citizen::Citizen(const std::string& name, Building& building, ProfessionType professionType, int happiness, int money, int lifePoints)
 	: building(building)
 {
 	setName(name);
@@ -51,22 +58,41 @@ Citizen::~Citizen()
 	free();
 }
 
+void Citizen::live(unsigned dateDay)
+{
+	int moneyAfterRent = status.money - building.getRent() < 0;
+
+	if (dateDay == 1)
+	{
+		profession->work();
+
+		status.money -= building.getRent();
+	}
+
+	status.money -= DEFAULT_FOOD_PRICE;
+
+	if (status.money < 0)
+		status.money = 0;
+
+	statuses.push_back(status);
+}
+
 const std::string& Citizen::getName() const
 {
 	return name;
 }
 
-unsigned Citizen::getHappiness() const
+int Citizen::getHappiness() const
 {
 	return status.happiness;
 }
 
-unsigned Citizen::getMoney() const
+int Citizen::getMoney() const
 {
 	return status.money;
 }
 
-unsigned Citizen::getLifePoints() const
+int Citizen::getLifePoints() const
 {
 	return status.lifePoints;
 }
@@ -79,25 +105,51 @@ void Citizen::setName(const std::string& name)
 	this->name = name;
 }
 
-void Citizen::setHappiness(unsigned happiness)
+void Citizen::setHappiness(int happiness)
 {
-	if (happiness == 0)
+	if (happiness < 0)
 		throw std::invalid_argument(INVALID_HAPPINESS_ERROR_MESSAGE);
 
-	this->happiness = happiness;
+	status.happiness = happiness;
 }
 
-void Citizen::setMoney(unsigned money)
+void Citizen::setMoney(int money)
 {
-	this->money = money;
+	if (money < 0)
+		throw std::invalid_argument(INVALID_MONEY_ERROR_MESSAGE);
+
+	status.money = money;
 }
 
-void Citizen::setLifePoints(unsigned lifePoints)
+void Citizen::setLifePoints(int lifePoints)
 {
-	if (lifePoints == 0)
+	if (lifePoints < 0)
 		throw std::invalid_argument(INVALID_LIFE_POINTS_ERROR_MESSAGE);
 
-	this->lifePoints = lifePoints;
+	status.lifePoints = lifePoints;
+}
+
+const std::string Citizen::getInfoString() const
+{
+	std::vector<Status> statuses;
+
+	std::string infoString("Name: " + name + "\n");
+
+	infoString.append("\tProfession: " + profession->getInfoString() + "\n");
+	infoString.append("\tCurrent stats:\n");
+	infoString.append("\t\tHappiness: " + std::to_string(status.happiness) + "\n");
+	infoString.append("\t\tMoney: " + std::to_string(status.money) + "\n");
+	infoString.append("\t\tLife Points: " + std::to_string(status.lifePoints) + "\n");
+	infoString.append("\tHistory:\n");
+
+	for (size_t i = 0; i < statuses.size(); i++)
+	{
+		infoString.append("\t\tH: " + std::to_string(statuses[i].happiness) + "\n");
+		infoString.append("\t\tM: " + std::to_string(statuses[i].money) + "\n");
+		infoString.append("\t\tLP: " + std::to_string(statuses[i].lifePoints) + "\n\n");
+	}
+
+	return infoString;
 }
 
 void Citizen::setProfession(ProfessionType professionType)
@@ -105,19 +157,19 @@ void Citizen::setProfession(ProfessionType professionType)
 	switch (professionType)
 	{
 	case ProfessionType::Teacher:
-		profession = new Teacher();
+		profession = new Teacher(*this);
 		break;
 
 	case ProfessionType::Miner:
-		profession = new Miner();
+		profession = new Miner(*this);
 		break;
 
 	case ProfessionType::Programmer:
-		profession = new Programmer();
+		profession = new Programmer(*this);
 		break;
 
 	case ProfessionType::Unemployed:
-		profession = new Unemployed();
+		profession = new Unemployed(*this);
 		break;
 
 	default:
@@ -132,9 +184,9 @@ void Citizen::free()
 
 void Citizen::copyFrom(const Citizen& other)
 {	
-	Profession* tempProfession = other.profession->clone();
+	Profession* profession = other.profession->clone(*this);
 
-	profession = tempProfession;
+	this->profession = profession;
 	name = other.name;
 	building = other.building;
 	status = other.status;

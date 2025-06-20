@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Building.h"
-#include "ISerializable.h"
-#include <Models/Entities/Profession.h>
 
 #include <string>
+
+class Profession;
 
 enum class ProfessionType
 {
@@ -15,10 +15,10 @@ enum class ProfessionType
 };
 
 // The citizen class represents the actual citizens in the simulation. Their functions are handled by the abstract method live(). 
-class Citizen : public ISerializable
+class Citizen
 {
 public:
-	Citizen(const std::string& name, Building& building, ProfessionType professionType, unsigned happiness, unsigned money, unsigned lifePoints);
+	Citizen(const std::string& name, Building& building, ProfessionType professionType, int happiness, int money, int lifePoints);
 	Citizen(const Citizen& other);
 	Citizen& operator=(const Citizen& other);
 	~Citizen();
@@ -26,11 +26,15 @@ public:
 	void live(unsigned dateDay);
 
 	const std::string& getName() const;
-	unsigned getHappiness() const;
-	unsigned getMoney() const;
-	unsigned getLifePoints() const;	
+	int getHappiness() const;
+	int getMoney() const;
+	int getLifePoints() const;	
 
-	std::string getInfoString() const;
+	void setMoney(int money);
+	void setHappiness(int happiness);
+	void setLifePoints(int lifePoints);
+
+	const std::string getInfoString() const;
 
 	bool serialize(const std::string& fileName) const;
 	bool deserialize(const std::string& fileName) const;
@@ -41,18 +45,17 @@ protected:
 	Profession* profession;
 	struct Status
 	{
-		unsigned happiness;
-		unsigned money;
-		unsigned lifePoints;
+		int happiness;
+		int money;
+		int lifePoints;
 	} status;
 
 	std::vector<Status> statuses;
 
 	void setName(const std::string& name);
-	void setHappiness(unsigned happiness);
-	void setMoney(unsigned money);
-	void setLifePoints(unsigned lifePoints);
 	void setProfession(ProfessionType professionType);
+
+	void seed();
 
 	void free();
 	void copyFrom(const Citizen& other);

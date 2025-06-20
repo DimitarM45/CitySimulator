@@ -1,17 +1,13 @@
 #include <Services/Simulation.h>
 #include <Models/Commands/GenerateCommand.h>
 
-GenerateCommand::GenerateCommand(Simulation& simulation, SeedOption seedOption)
-	: Command(simulation) { }
+GenerateCommand::GenerateCommand(Simulation& simulation, unsigned length, unsigned width)
+	: Command(simulation) {
+}
 
 bool GenerateCommand::execute()
 {
-	simulation.configure(seedOption);
+	simulation.seed(length, width);
 
-	return true;
-}
-
-std::string GenerateCommand::serializeOutput()
-{
-	return simulation.getDate().getDateString();
+	output = simulation.getDate().getDateString();
 }

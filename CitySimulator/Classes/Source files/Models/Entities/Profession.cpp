@@ -1,9 +1,11 @@
+#include <Models/Entities/Citizen.h>
 #include <Models/Entities/Profession.h>
 
 #include <ctime>
 #include <random>
 
-Profession::Profession(unsigned minSalary, unsigned maxSalary)
+Profession::Profession(Citizen& citizen, unsigned minSalary, unsigned maxSalary)
+    : citizen(citizen)
 {
     setSalary(minSalary, maxSalary);
 }
@@ -25,7 +27,10 @@ int max(int first, int second)
 
 void Profession::setSalary(unsigned minSalary, unsigned maxSalary)
 {
-    std::srand(std::time(nullptr));
-
     salary = rand() % (maxSalary - minSalary + 1) + minSalary;
+}
+
+const std::string Profession::getInfoString() const
+{
+    return "Salary: " + std::to_string(salary);
 }

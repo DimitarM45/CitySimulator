@@ -2,6 +2,7 @@
 
 #include <ctime>
 #include <random>
+#include <Models/Entities/Citizen.h>
 
 namespace TeacherConstants
 {
@@ -11,15 +12,22 @@ namespace TeacherConstants
 
 using namespace TeacherConstants;
 
-Teacher::Teacher()
-	: Profession(TEACHER_MIN_SALARY, TEACHER_MAX_SALARY) { }
+Teacher::Teacher(Citizen& citizen)
+	: Profession(citizen, TEACHER_MIN_SALARY, TEACHER_MAX_SALARY) { }
 
-void Teacher::work(unsigned& happiness) const
+void Teacher::work() const
 {
-	happiness = min(happiness + 1, 100);
+	citizen.setHappiness(min(citizen.getHappiness() + 1, 100));
 }
 
-Teacher* Teacher::clone() const
+Teacher* Teacher::clone(Citizen& citizen) const
 {
-	return new Teacher(*this);
+	return new Teacher(citizen);
+}
+
+const std::string Teacher::getInfoString() const
+{
+	std::string infoString("Teacher ");
+
+	return infoString.append(Profession::getInfoString());
 }

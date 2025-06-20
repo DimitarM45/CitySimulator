@@ -6,14 +6,13 @@ class InfoCommand : public Command
 {
 public:
 	InfoCommand(Simulation& simulation);
-	InfoCommand(Simulation& simulation, int yIndex, int xIndex, const std::string* name = nullptr);
+	InfoCommand(Simulation& simulation, int yIndex, int xIndex, const std::string* citizenName = nullptr);
 
 	bool execute() override;
-	std::string serializeOutput() override;
 
 private:
 	int yIndex;
 	int xIndex;
-	const std::string* name;
+	const std::string* citizenName;
 };
 

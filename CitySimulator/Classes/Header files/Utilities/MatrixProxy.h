@@ -16,12 +16,12 @@ public:
 
 	const T& operator[](unsigned xIndex) const
 	{
-		return data[yIndex * width + xIndex];
+		return data.at(yIndex * width + xIndex);
 	}
 
 	T& operator[](unsigned xIndex)
 	{
-		return data[yIndex * width + xIndex];
+		return data.at(yIndex * width + xIndex);
 	}
 
 private:

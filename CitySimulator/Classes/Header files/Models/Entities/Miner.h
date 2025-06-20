@@ -5,10 +5,12 @@
 class Miner : public Profession
 {
 public:
-	Miner();
+	Miner(Citizen& citizen);
 
-	void work(unsigned& life) const override;
+	void work() const override;
 
-	Miner* clone() const override;
+	Miner* clone(Citizen& citizen) const override;
+
+	const std::string getInfoString() const override;
 };
 

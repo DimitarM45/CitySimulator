@@ -9,8 +9,7 @@ public:
 
 	bool execute() override;
 
-	std::string serializeOutput() override;
-
 private:
+	const std::string& fileName;
 };
 
